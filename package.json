@@ -5,7 +5,6 @@
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
-    "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
     "babel-loader": "7.1.2",
     "babel-preset-react-app": "^3.1.1",
@@ -88,7 +87,21 @@
       "react-app"
     ]
   },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "build/*",
+      "config/*",
+      "public/*",
+      "scripts/*",
+      "node_modules/*",
+      "src/registerServiceWorker.js"
+    ]
+  },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3"
   }
 }
