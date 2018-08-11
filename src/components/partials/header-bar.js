@@ -7,6 +7,10 @@ import ArcadeIcon from 'svg/arcade.svg'
 
 import { BG_COLOR } from 'utils/styles'
 
+const MyHeader = styled.header`
+
+`
+
 const Logo = styled.img`
   height: 80px;
   width: auto;
@@ -23,20 +27,25 @@ const LogoWrap = styled.div`
   border-bottom-right-radius: 50%;
 `
 
-export default class Header extends Component {
+export default class Banner extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {}
+    // this.urls = ['/', '/add-game']
+  }
+
   render () {
     return (
-      <header className='App-header'>
-        <Link to='/'>
+      <MyHeader className='App-header'>
+        <Link to='/add-game'>
           <LogoWrap className='logo-wrap'>
-            <Logo src={ArcadeIcon} className='App-logo' alt='logo' />
+            <Logo src={ArcadeIcon} className='App-logo' alt='Urban Arcade logo' />
           </LogoWrap>
         </Link>
         <div className='title-wrap'>
           <h1 className='App-title'>Urbane Arcade</h1>
         </div>
-
-      </header>
+      </MyHeader>
     )
   }
 }

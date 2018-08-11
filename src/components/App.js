@@ -1,12 +1,13 @@
+
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import Main from './main'
-import Header from './header'
-import Footer from './footer'
+import Main from 'components/partials/main'
+import Banner from 'components/partials/header-bar'
+import Footer from 'components/partials/footer'
 
-import { BG_COLOR } from 'utils/styles'
-import './App.css'
+// import { BG_COLOR } from 'utils/styles'
+import './app.css'
 
 const Overlay = styled.div`
   background-color: ${props => props.backgroundColor};
@@ -43,7 +44,7 @@ class App extends Component {
     return (
       <div className='App'>
         <Overlay backgroundColor={backgroundColor} />
-        <Header imageOnLoad={this.handleImageOnLoad} />
+        <Banner imageOnLoad={this.handleImageOnLoad} />
         <Main />
       </div>
     )

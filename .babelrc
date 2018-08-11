@@ -5,6 +5,7 @@
             "root": ["./"],
             "alias": {
                 "components": "./src/components",
+                "config": "./src/config/development.js",
                 "actions": "./src/actions",
                 "svg": "./src/svg",
                 "utils": "./src/utils",

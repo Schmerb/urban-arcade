@@ -3,7 +3,23 @@ import ReactModal from 'react-modal'
 import styled from 'styled-components'
 
 const Container = styled.div`
-    border: 1px solid pink;
+  background-color: grey;
+  width: 100%;
+  height: 100%;
+  border: 1px solid pink;
+`
+
+const TitleBar = styled.div`
+  width: 100%;
+  height: 40px;
+  border: 1px solid limegreen;
+`
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid limegreen;
 `
 
 const customStyles = {
@@ -22,36 +38,32 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
     border: '1px solid #ccc',
     background: '#fff',
-    overflow: 'auto',
+    overflow: 'hidden',
     WebkitOverflowScrolling: 'touch',
     borderRadius: '4px',
     outline: 'none',
-    padding: '20px'
+    padding: '5px'
   }
 }
 
 export default class Modal extends Component {
-  afterOpenModal = () => {
-    let { afterOpenModal } = this.props
-    afterOpenModal && afterOpenModal()
-  }
-
-  closeModal = () => {
-    let { closeModal } = this.props
-    closeModal && closeModal()
-  }
-
   render () {
     return (
       <ReactModal
-        shouldCloseOnOverlayClick
+        shouldCloseOnOverlayClick={this.props.shouldCloseOnOverlayClick}
+        ariaHideApp={false}
         isOpen={this.props.isOpen}
-        onAfterOpen={this.afterOpenModal}
-        onRequestClose={this.closeModal}
+        onAfterOpen={this.props.onAfterOpen}
+        onRequestClose={this.props.onRequestClose}
         style={customStyles}
         contentLabel='Modal'>
         <Container>
-          <h1>Modal</h1>
+          <TitleBar>
+            <h1>{this.props.title}</h1>
+          </TitleBar>
+          <Content>
+            {this.props.children}
+          </Content>
         </Container>
       </ReactModal>
     )
