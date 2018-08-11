@@ -15,6 +15,8 @@ const Container = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   height: calc(100vh - 105px);
+  width: 100%;
+  float: left;
   ${props => props.loginIsOpen
     ? css`filter: blur(5px);`
     : null}
@@ -28,17 +30,18 @@ class Main extends Component {
   }
 
   componentWillMount () {
-    this.props.history.push('/login')
+    // this.props.history.push('/login')
   }
 
-  componentDidMount () {
-    // this.props.dispatch(openLoginModal(false))
+  GameStatsModal = () => {
+    return <GameStatsModal isOpen={this.isHome()} />
   }
 
   loginModal = () => {
     return <LoginModal isOpen={this.isLogin()} />
   }
 
+  isHome = () => this.props.location.pathname === '/'
   isLogin = () => this.props.location.pathname === '/login'
 
   render () {
@@ -46,12 +49,10 @@ class Main extends Component {
     return (
       <main>
         <Container loginIsOpen={this.isLogin()}>
-          <Switch>
-            <Route exact path='/login' render={this.loginModal} />
-            <Route exact path='/' render={this.GameStatsModal} />
-            <Route path='/add-game' component={AddGameModal} />
-            <Route path='/map' component={MyMap} />
-          </Switch>
+          <LoginModal isOpen={this.isLogin()} />
+          <GameStatsModal isOpen={this.isHome()} />
+          <Route path='/add-game' component={AddGameModal} />
+          <Route path='/map' component={MyMap} />
         </Container>
       </main>
     )
