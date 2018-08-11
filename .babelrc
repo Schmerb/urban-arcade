@@ -6,6 +6,8 @@
             "alias": {
                 "components": "./src/components",
                 "actions": "./src/actions",
+                "svg": "./src/svg",
+                "utils": "./src/utils",
                 "reducers": "./src/reducers",
                 "myConfig": "./src/config"
             }
