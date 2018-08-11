@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import Main from 'components/partials/main'
-import Banner from 'components/partials/header-bar'
+import Banner from 'components/partials/banner'
 import Footer from 'components/partials/footer'
 
 // import { BG_COLOR } from 'utils/styles'
@@ -18,6 +18,7 @@ const Overlay = styled.div`
   bottom: 0;
   width: 100%;
   height: 100%;
+  z-index: 99;
   pointer-events: none;
   transition: all 1s ease;
 `
@@ -44,7 +45,7 @@ class App extends Component {
     return (
       <div className='App'>
         <Overlay backgroundColor={backgroundColor} />
-        <Banner imageOnLoad={this.handleImageOnLoad} />
+        <Banner />
         <Main />
       </div>
     )

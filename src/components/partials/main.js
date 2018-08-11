@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
 import LoginModal from 'components/modals/login-modal'
 import AddGameModal from 'components/modals/add-game-modal'
+import GameStatsModal from 'components/modals/game-stats-modal'
 import MyMap from 'components/modals/map'
 
 import { openLoginModal } from 'actions/display'
@@ -26,21 +27,28 @@ class Main extends Component {
     this.state = {}
   }
 
+  componentWillMount () {
+    this.props.history.push('/login')
+  }
+
   componentDidMount () {
-    this.props.dispatch(openLoginModal(false))
+    // this.props.dispatch(openLoginModal(false))
   }
 
   loginModal = () => {
-    return <LoginModal isOpen={this.props.loginIsOpen} />
+    return <LoginModal isOpen={this.isLogin()} />
   }
+
+  isLogin = () => this.props.location.pathname === '/login'
 
   render () {
     console.log({props: this.props})
     return (
       <main>
-        <Container loginIsOpen={this.props.loginIsOpen}>
+        <Container loginIsOpen={this.isLogin()}>
           <Switch>
-            <Route exact path='/' render={this.loginModal} />
+            <Route exact path='/login' render={this.loginModal} />
+            <Route exact path='/' render={this.GameStatsModal} />
             <Route path='/add-game' component={AddGameModal} />
             <Route path='/map' component={MyMap} />
           </Switch>
@@ -54,4 +62,4 @@ const mapStoreToProps = state => ({
   loginIsOpen: state.loginIsOpen
 })
 
-export default connect(mapStoreToProps)(Main)
+export default withRouter(connect(mapStoreToProps)(Main))

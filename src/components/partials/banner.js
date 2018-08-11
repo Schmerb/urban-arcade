@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import { connect } from 'react-redux'
+import { Link, withRouter } from 'react-router-dom'
+import styled, { css } from 'styled-components'
 
-import logo from 'svg/logo.svg'
 import ArcadeIcon from 'svg/arcade.svg'
 
 import { BG_COLOR } from 'utils/styles'
 
 const MyHeader = styled.header`
-
+${props => props.loginIsOpen
+    ? css`filter: blur(3px);`
+    : null}
 `
 
 const Logo = styled.img`
@@ -27,16 +29,15 @@ const LogoWrap = styled.div`
   border-bottom-right-radius: 50%;
 `
 
-export default class Banner extends Component {
+class Banner extends Component {
   constructor (props) {
     super(props)
     this.state = {}
-    // this.urls = ['/', '/add-game']
   }
 
   render () {
     return (
-      <MyHeader className='App-header'>
+      <MyHeader loginIsOpen={this.props.location === '/login'} className='App-header'>
         <Link to='/add-game'>
           <LogoWrap className='logo-wrap'>
             <Logo src={ArcadeIcon} className='App-logo' alt='Urban Arcade logo' />
@@ -49,3 +50,9 @@ export default class Banner extends Component {
     )
   }
 }
+
+const mapStoreToProps = state => ({
+  loginIsOpen: state.loginIsOpen
+})
+
+export default withRouter(connect(mapStoreToProps)(Banner))
