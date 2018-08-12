@@ -34,7 +34,6 @@ body {
 .App-title {
   flex-grow: 1;
   margin: 0;
-  font-size: 1.5em;
   align-self: center;
 }
 

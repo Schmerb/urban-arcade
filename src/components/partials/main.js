@@ -33,19 +33,12 @@ class Main extends Component {
     // this.props.history.push('/login')
   }
 
-  GameStatsModal = () => {
-    return <GameStatsModal isOpen={this.isHome()} />
-  }
-
-  loginModal = () => {
-    return <LoginModal isOpen={this.isLogin()} />
-  }
-
   isHome = () => this.props.location.pathname === '/'
   isLogin = () => this.props.location.pathname === '/login'
 
   render () {
     console.log({props: this.props})
+    let isLogin = this.isLogin()
     return (
       <main>
         <Container loginIsOpen={this.isLogin()}>

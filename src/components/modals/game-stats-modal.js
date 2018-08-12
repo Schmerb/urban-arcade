@@ -132,7 +132,7 @@ class GameStatsModal extends Component {
         coords: { lat, lng },
         timesPlayed
       }
-      console.log({game})
+      // console.log({game})
       return game
     })
   }

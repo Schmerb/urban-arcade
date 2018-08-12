@@ -47,6 +47,9 @@ class App extends Component {
         <Overlay backgroundColor={backgroundColor} />
         <Banner />
         <Main />
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Audiowide|Baloo+Bhai|Baloo+Bhaijaan|Baloo+Tamma|Baumans|Black+Ops+One|Chela+One|Encode+Sans+Expanded|Geo|Geostar+Fill|Gugi|Megrim|Monofett|Mukta+Malar|Nova+Mono|Nova+Round|Nova+Square|Orbitron|Press+Start+2P|Quintessential|Rationale|Sarpanch|Share+Tech|Share+Tech+Mono|Shrikhand|Syncopate|Wallpoet');
+        </style>
       </div>
     )
   }
