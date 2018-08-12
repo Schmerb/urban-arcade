@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Switch, Route, withRouter } from 'react-router-dom'
 import styled, { css } from 'styled-components'
+import ReactGridLayout from 'react-grid-layout'
 
 import LoginModal from 'components/modals/login-modal'
 import AddGameModal from 'components/modals/add-game-modal'
@@ -26,7 +27,27 @@ class Main extends Component {
   constructor (props) {
     super(props)
 
-    this.state = {}
+    this.state = {
+      layout: [
+        {i: 'a', x: 0, y: 0, w: 1, h: 2, static: true},
+        {i: 'b', x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4},
+        {i: 'c', x: 4, y: 0, w: 1, h: 2}
+      ]
+    }
+
+    this.gridProps = {
+      className: 'layout',
+      items: 50,
+      cols: 30,
+      rowHeight: 10,
+      autoSize: false,
+      draggableHandle: '.handle',
+      onDragStop: this.onDragStop,
+      onLayoutChange: this.onLayoutChange,
+      onResize: this.onResize,
+      // This turns off compaction so you can place items wherever.
+      compactType: null
+    }
   }
 
   componentWillMount () {
@@ -42,10 +63,16 @@ class Main extends Component {
     return (
       <main>
         <Container loginIsOpen={this.isLogin()}>
-          <LoginModal isOpen={this.isLogin()} />
-          <GameStatsModal isOpen={this.isHome()} />
+          <LoginModal key='a' isOpen={this.isLogin()} />
+          {/* <GameStatsModal key='b' isOpen={this.isHome()} />
           <Route path='/add-game' component={AddGameModal} />
-          <Route path='/map' component={MyMap} />
+          <Route path='/map' component={MyMap} /> */}
+          <ReactGridLayout style={{width: '100%'}} layout={this.state.layout} {...this.gridProps}>
+            <div key='a'>a</div>
+            <div key='b'>b</div>
+            <div key='c'>c</div>
+            <div key='d'>d</div>
+          </ReactGridLayout>
         </Container>
       </main>
     )
