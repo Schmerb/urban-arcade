@@ -11,13 +11,18 @@ import { fonts } from 'src/fonts.js'
 // import { BG_COLOR } from 'utils/styles'
 
 const MyHeader = styled.header`
-${props => props.loginIsOpen
+  position: relative;
+  ${props => props.loginIsOpen
     ? css`filter: blur(3px);`
     : null}
 `
+
 const H1 = styled.h1`
+  position: absolute;
   font-family: ${props => props.fontFamily}
-  font-size: ${props => props.fontSize + 'px;'}
+  font-size: ${props => props.fontSize}px;
+  left: ${props => props.left}px;
+  transform: translateY(${props => props.translateY}px);
 `
 
 const Logo = styled.img`
@@ -53,8 +58,9 @@ const Label = styled.label`
 const List = styled.ul`
   position: absolute;
   top: 0;
-  right: 0;
+  right: 10px;
   height: 100px;
+  padding: 0;
   overflow: hidden;
   list-style: none;
 `
@@ -66,11 +72,35 @@ class Banner extends Component {
     this.state = {
       fontFamily: fonts[0][key],
       fontSize: 24,
+      left: 600,
+      translateY: 0,
       url: '/add-game'
     }
 
     this.index = 0
     this.max = fonts.length - 1
+  }
+
+  handleLeft = (direction, fastForward = false) => {
+    const current = this.state.left
+    const next = direction === 'left' ? (fastForward ? -100 : -20) : (fastForward ? 100 : 20)
+    this.setState({ left: current + next })
+  }
+
+  handleTranslateY = (direction, fastForward = false) => {
+    const current = this.state.translateY
+    const max = 40
+    const min = -40
+
+    let next = direction === 'up' ? (fastForward ? -2 : -1) : (fastForward ? 2 : 1)
+
+    next = current + next
+    if (next > max) {
+      next = max
+    } else if (next < min) {
+      next = min
+    }
+    this.setState({ translateY: next })
   }
 
   handleNext = () => this.handleClick('next')
@@ -104,7 +134,13 @@ class Banner extends Component {
           </LogoWrap>
         </Link>
         <div className='title-wrap'>
-          <H1 fontFamily={this.state.fontFamily} fontSize={this.state.fontSize} className='App-title'>Urban Arcade</H1>
+          <H1 className='App-title'
+            left={this.state.left}
+            translateY={this.state.translateY}
+            fontFamily={this.state.fontFamily}
+            fontSize={this.state.fontSize}>
+            Urban Arcade
+          </H1>
           <List>
             <li>
               <Button onClick={this.handlePrev} type='button'>prev</Button>
@@ -115,6 +151,22 @@ class Banner extends Component {
               <Button onClick={this.handleFontNeg} type='button'>-</Button>
               <Label>Font Size: {this.state.fontSize}px</Label>
               <Button onClick={this.handleFontPlus} type='button'>+</Button>
+            </li>
+            <li>
+              <Button onDoubleClick={() => this.handleLeft('left', true)} onClick={() => this.handleLeft('left')} type='button'>Left</Button>
+              <Label>left: {this.state.left}px</Label>
+              <Button onDoubleClick={() => this.handleLeft('right', true)} onClick={() => this.handleLeft('right')} type='button'>Right</Button>
+            </li>
+            <li>
+              <Button
+                onDoubleClick={() => this.handleTranslateY('up', true)}
+                onClick={() => this.handleTranslateY('up')}
+                type='button'>up</Button>
+              <Label>translateY: {this.state.translateY}px</Label>
+              <Button
+                onDoubleClick={() => this.handleTranslateY('down', true)}
+                onClick={() => this.handleTranslateY('down')}
+                type='button'>down</Button>
             </li>
           </List>
         </div>

@@ -5,6 +5,7 @@ body {
   background-color: #107273;
   background-image: linear-gradient(120deg, #107273 0%, #20b5b5 120%);
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .App {
