@@ -37,13 +37,15 @@ class Main extends Component {
   isLogin = () => this.props.location.pathname === '/login'
 
   render () {
-    console.log({props: this.props})
     let isLogin = this.isLogin()
+    let isHome = this.isHome()
+    console.log({props: this.props})
+    console.log({isHome})
     return (
       <main>
         <Container loginIsOpen={this.isLogin()}>
           <LoginModal isOpen={this.isLogin()} />
-          <GameStatsModal isOpen={this.isHome()} />
+          <Route exact path='/' component={GameStatsModal} />
           <Route path='/add-game' component={AddGameModal} />
           <Route path='/map' component={MyMap} />
         </Container>

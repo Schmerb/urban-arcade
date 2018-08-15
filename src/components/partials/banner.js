@@ -65,7 +65,8 @@ class Banner extends Component {
     let key = Object.keys(fonts[0])[0]
     this.state = {
       fontFamily: fonts[0][key],
-      fontSize: 24
+      fontSize: 24,
+      url: '/add-game'
     }
 
     this.index = 0
@@ -97,13 +98,13 @@ class Banner extends Component {
   render () {
     return (
       <MyHeader loginIsOpen={this.props.location === '/login'} className='App-header'>
-        <Link to='/add-game'>
+        <Link to={this.state.url} onClick={() => this.setState({ url: this.state.url === '/' ? '/add-game' : '/' })}>
           <LogoWrap className='logo-wrap'>
             <Logo src={ArcadeIcon} className='App-logo' alt='Urban Arcade logo' />
           </LogoWrap>
         </Link>
         <div className='title-wrap'>
-          <H1 fontFamily={this.state.fontFamily} fontSize={this.state.fontSize} className='App-title'>Urbane Arcade</H1>
+          <H1 fontFamily={this.state.fontFamily} fontSize={this.state.fontSize} className='App-title'>Urban Arcade</H1>
           <List>
             <li>
               <Button onClick={this.handlePrev} type='button'>prev</Button>
