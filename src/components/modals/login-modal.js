@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import hexToRgba from 'hex-rgba'
 
-import { openLoginModal } from 'actions/display'
+// import { openLoginModal } from 'actions/display'
 import Modal from './index.js'
 
 import { BG_COLOR } from 'utils/styles'
@@ -80,7 +80,7 @@ class LoginModal extends Component {
 
   handleLogin = (e) => {
     e.preventDefault()
-    let form = e.target
+    // let form = e.target
     let username = this.username.value
     let password = this.password.value
 

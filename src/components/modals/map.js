@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 import { GoogleMap, Marker, withGoogleMap, withScriptjs } from 'react-google-maps'
 
 const defaultCenter = {

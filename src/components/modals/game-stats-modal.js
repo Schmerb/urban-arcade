@@ -1,17 +1,17 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import hexToRgba from 'hex-rgba'
 import faker from 'faker'
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 
-import Modal from './index.js'
+// import Modal from './index.js'
 
-import { BG_COLOR } from 'utils/styles'
-import ArcadeIcon from 'svg/arcade.svg'
+// import { BG_COLOR } from 'utils/styles'
+// import ArcadeIcon from 'svg/arcade.svg'
 
 const Container = styled.div`
   background-color: rgba(35,46,51,0.9);
@@ -87,7 +87,7 @@ const columns = [{
   Header: 'Address',
   id: 'address',
   accessor: game => {
-    let { street, city, state, country } = game.address
+    let { street, city, state } = game.address
     return <List>
       <li>{street}</li>
       <li>{city}</li>
@@ -118,7 +118,7 @@ class GameStatsModal extends Component {
       const coords = randomCard.address.geo
       const { city, country, state, streetA, streetB, streetC, streetD } = randomCard.address
       const { name, username, phone, email, website, accountHistory } = randomCard
-
+      console.log(username, phone, email, website)
       let arr = [ streetA, streetB, streetC, streetD ]
       let i = Math.floor(Math.random() * 4)
       let i2 = Math.floor(Math.random() * 3)

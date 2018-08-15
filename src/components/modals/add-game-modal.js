@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
-import hexToRgba from 'hex-rgba'
+// import styled from 'styled-components'
+// import hexToRgba from 'hex-rgba'
 import Modal from './index.js'
 
-import { BG_COLOR } from 'utils/styles'
-import ArcadeIcon from 'svg/arcade.svg'
+// import { BG_COLOR } from 'utils/styles'
+// import ArcadeIcon from 'svg/arcade.svg'
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: ${props => hexToRgba(BG_COLOR, props.opacity || 60)};
-  width: 100%;
-  height: 100%;
-`
+// const Container = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   background-color: ${props => hexToRgba(BG_COLOR, props.opacity || 60)};
+//   width: 100%;
+//   height: 100%;
+// `
 
 export default class AddGameModal extends Component {
   constructor (props) {

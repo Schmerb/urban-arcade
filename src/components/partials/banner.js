@@ -1,4 +1,4 @@
-import _ from 'lodash'
+// import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
@@ -8,7 +8,7 @@ import ArcadeIcon from 'svg/arcade.svg'
 
 import { fonts } from 'src/fonts.js'
 
-import { BG_COLOR } from 'utils/styles'
+// import { BG_COLOR } from 'utils/styles'
 
 const MyHeader = styled.header`
 ${props => props.loginIsOpen
