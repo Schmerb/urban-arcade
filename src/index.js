@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 
 import store from 'reducers'
-import App from 'components/app'
+import App from './components/app'
 
 import registerServiceWorker from './registerServiceWorker'
 
