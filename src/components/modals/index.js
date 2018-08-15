@@ -3,7 +3,7 @@ import ReactModal from 'react-modal'
 import styled from 'styled-components'
 import hexToRgba from 'hex-rgba'
 
-import { BG_COLOR } from 'utils/styles'
+import { BG_COLOR } from '../../utils/styles'
 
 const Container = styled.div`
   display: flex;

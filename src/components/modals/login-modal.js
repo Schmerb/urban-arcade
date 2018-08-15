@@ -7,7 +7,7 @@ import hexToRgba from 'hex-rgba'
 // import { openLoginModal } from 'actions/display'
 import Modal from './index.js'
 
-import { BG_COLOR } from 'utils/styles'
+import { BG_COLOR } from '../../utils/styles'
 import ArcadeIcon from 'svg/arcade.svg'
 
 const containerStyles = {

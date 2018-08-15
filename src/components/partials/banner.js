@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
-import ArcadeIcon from 'svg/arcade.svg'
+import ArcadeIcon from '../../svg/arcade.svg'
 
-import { fonts } from 'src/fonts.js'
+import { fonts } from '../../fonts.js'
 
 // import { BG_COLOR } from 'utils/styles'
 

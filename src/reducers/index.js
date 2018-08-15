@@ -4,7 +4,7 @@ import config from 'config'
 
 import {
   loginIsOpen
-} from 'reducers/display'
+} from './display'
 
 const middleware = [ thunk ]
 const { enabled, type } = config.logging

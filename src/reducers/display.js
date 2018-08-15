@@ -1,4 +1,4 @@
-import { OPEN_LOGIN_MODAL } from 'actions/display'
+import { OPEN_LOGIN_MODAL } from '../actions/display'
 
 export function loginIsOpen (state = true, action) {
   switch (action.type) {

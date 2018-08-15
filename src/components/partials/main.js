@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import { Route, withRouter } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
-import LoginModal from 'components/modals/login-modal'
-import AddGameModal from 'components/modals/add-game-modal'
-import GameStatsModal from 'components/modals/game-stats-modal'
-import MyMap from 'components/modals/map'
+import LoginModal from '../modals/login-modal'
+import AddGameModal from '../modals/add-game-modal'
+import GameStatsModal from '../modals/game-stats-modal'
+import MyMap from '../modals/map'
 
 // import { openLoginModal } from 'actions/display'
 

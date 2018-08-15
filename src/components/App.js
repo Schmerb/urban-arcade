@@ -2,8 +2,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import Main from 'components/partials/main'
-import Banner from 'components/partials/banner'
+import Main from './partials/main'
+import Banner from './partials/banner'
 // import Footer from 'components/partials/footer'
 
 // import { BG_COLOR } from 'utils/styles'
